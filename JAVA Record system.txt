@@ -1,0 +1,50 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s = new Scanner(System.in);
+		int phy,chem,math,oop;
+		int total,avg;
+		int n;
+		System.out.println("Enter the no. of students:");
+		n=s.nextInt();
+		for(int i=1;i<=n;i++)
+		{
+		    System.out.println("Enter the marks of student"+i);
+		    System.out.println("Enter marks of the phy :");
+		    phy = s.nextInt();
+		    System.out.println("Enter marks of the chem :");
+		    chem = s.nextInt();
+		    System.out.println("Enter marks of the math :");
+		    math = s.nextInt();
+		    System.out.println("Enter marks of the oop :");
+		    oop = s.nextInt();
+		    
+		    total = phy+chem+math+oop;
+		    avg=total/4;
+		    System.out.println("Total marks are: "+total);
+		    System.out.println("Average is: "+avg);
+		    
+		    if(avg>=80)
+		    {
+		        System.out.println("Grade of the student" +i+ " is A.");
+		    }
+		    else if(avg<80 && avg>=60)
+		    {
+		        System.out.println("Grade of the student "+i+"is B");
+		    }
+		    else if(avg<60 && avg>=40)
+		    {
+		        System.out.println("Grade of the student "+i+"is C");
+		    }
+		    else
+		    {
+		        System.out.println("Grade of the student "+i+"is D");
+		    }
+		    
+		}
+		
+		
+		
+	}
+}

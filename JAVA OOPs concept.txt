@@ -1,0 +1,74 @@
+import java.util.*;
+class Computer_Engg
+
+{
+protected String Name;
+    protected int Roll_Number;
+ protected int GR_Number;
+ protected String hobbies;
+ Scanner sc = new Scanner(System.in);
+ String getName()
+ {
+     return Name ;
+}
+ int get_Roll_No()
+{
+ return Roll_Number;
+ }
+ int getGR()
+ { 
+return GR_Number;
+ }
+
+};
+class Student extends Computer_Engg
+{
+ String area_of_intrest;
+ int marks;
+
+Student(String hobbies)
+{
+super.hobbies = hobbies ;
+}
+ void put_info()
+{
+ System.out.print("Enter your name :");
+ Name = sc.nextLine();
+ System.out.print("Enter your Roll No. :");
+Roll_Number = sc.nextInt();
+ System.out.print("Enter your GR No. :");
+ GR_Number = sc.nextInt();
+ System.out.print("Enter your area of intrest:");
+ area_of_intrest = sc.next();
+ System.out.print("Enter your marks :");
+marks = sc.nextInt();
+}
+
+ String get_area_of_intrest()
+ {
+ return area_of_intrest;
+}
+ int get_marks()
+ {
+ return marks;
+}
+
+};
+public class Main {
+public static void main(String[] args)
+ {
+    Student s1 = new Student("Coding");
+s1.put_info();
+
+System.out.println("********************************************************************************");
+System.out.println("Student info :");
+System.out.println("Name :" + s1.getName());
+ System.out.println("Roll No. :" + s1.get_Roll_No());
+System.out.println("GR No. :" + s1.getGR());
+ System.out.println("Area of intrest :"+ s1.get_area_of_intrest());
+ System.out.println("Marks :" + s1.get_marks());
+ System.out.println("Hobbies :" + s1.hobbies);
+
+ } 
+
+}

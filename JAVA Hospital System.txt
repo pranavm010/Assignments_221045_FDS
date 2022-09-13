@@ -1,0 +1,60 @@
+import java.util.*;
+public class Main
+{
+    public static void main(String[] args)
+    {
+        String name;String bloodgrp; String report; String address;
+        int ID;int DOB; int telephone; int adhar;
+        Scanner s = new Scanner(System.in);
+        patient pat =new patient();
+        patient[] pat2=new patient[5];
+      
+        
+        for(int i=0;i<5;i++){
+            System.out.println("Enter the details of ptient "+(i+1)+" :");
+            System.out.println("Enter name of the patient:");
+            name=s.nextLine();
+            System.out.println("Enter dob in ddmmyyyy:");
+            DOB=s.nextInt();
+            System.out.println("Enter ID:");
+            ID=s.nextInt();
+            System.out.println("Enter blood group:");
+            bloodgrp=s.next();
+            System.out.println("Enter adhar:");
+            adhar=s.nextInt();
+            System.out.println("Enter phone no. :");
+            telephone=s.nextInt();
+            System.out.println("Enter the test report :");
+            report=s.next();
+            System.out.println("Enter the address:");
+            address=s.next();
+            
+            pat2[i]=new patient( name,bloodgrp,report, address,  ID, DOB, telephone, adhar);
+        }
+        
+        
+        
+    }
+}
+
+class patient
+{
+    String name;String bloodgrp;String report;String address;
+    int ID;int DOB;int telephone; int adhar;
+  public  patient()
+    {
+        System.out.println("This is simple constructor.");
+    }
+   public patient(String name,String bloodgrp,String report, String address, int ID, int DOB,int telephone,int adhar)
+    {
+        this.name=name;
+        this.bloodgrp=bloodgrp;
+        this.report=report;
+        this.address=address;
+        this.ID=ID;
+        this.DOB=DOB;
+        this.telephone =telephone;
+        this.adhar=adhar;
+    }
+}
+
