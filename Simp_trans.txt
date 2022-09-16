@@ -1,0 +1,119 @@
+import java.util.* ;
+
+class sparse 
+{
+    private int k=1;
+    public int[][] sp = new int[10][3];
+    public  int[][] simp_trans= new int [10][3];
+
+    public void create_sparse(int row, int col, int [][] mat)
+    {
+        
+
+        Scanner sc = new Scanner(System.in);
+       
+
+        
+        for(int i=0; i<row; i++)
+        {
+            for(int j=0; j<col; j++)
+            {
+                if(mat[i][j] != 0)
+                {
+                    sp[k][0] = i ;
+                    sp[k][1] = j ;
+                    sp[k][2] = mat[i][j];
+                    k++ ;
+                }
+            }
+        }
+
+        sp[0][0] = row;
+        sp[0][1] = col;
+        sp[0][2] = (k-1) ;
+    }
+    
+    
+    public void display()
+    {
+        System.out.println("Your sparse matrix is :");
+
+        for(int i=0; i<k; i++)
+        {
+            System.out.println(sp[i][0] + "\t" + sp[i][1] + "\t" + sp[i][2]);
+        }
+    }
+    
+    public void create_simp_trans()
+    {
+        int k=1;
+        int[][] simp_trans= new int [10][3];
+        
+        simp_trans[0][0]=sp[0][1];
+        simp_trans[0][1]=sp[0][0];
+        simp_trans[0][2]=sp[0][2];
+        
+        
+        for( int z=0;z<sp[0][1];z++)
+        {
+            for(int p=1;p<=sp[0][2];p++)
+            {
+               
+                if(sp[p][1]==z)
+                {
+                    
+                    simp_trans[k][1]=sp[p][0];
+                    simp_trans[k][0]=sp[p][1];
+                    simp_trans[k][2]=sp[p][2];
+                    k++;
+                }
+                
+            }
+        }
+        System.out.println("Your simple transpose of the sparse matrix is :");
+
+        for(int l=0; l<=simp_trans[0][2]; l++)
+        {
+            System.out.println(simp_trans[l][0] + "\t" + simp_trans[l][1] + "\t" + simp_trans[l][2]);
+        }
+       
+        
+    
+    }
+    
+   
+};
+
+public class Main {
+    public static void main(String[] args)
+    {
+        int row, col;
+        System.out.println("Enter no. of rows and columns:");
+        Scanner sc = new Scanner(System.in);
+        row = sc.nextInt();
+        col = sc.nextInt();
+        
+        int[][] mat = new int[10][10];
+        System.out.println("Enter matrix elements : ");
+
+        for(int i=0; i<row; i++)
+        {
+            for(int j=0; j<col; j++)
+            {
+                mat[i][j] = sc.nextInt();
+            }
+        }
+
+        sparse s = new sparse();
+        s.create_sparse(row, col, mat);
+        s.display();
+        s.create_simp_trans();
+        //s.disp_simp_tran();
+        
+
+       
+        sc .close();
+
+    }
+
+}
